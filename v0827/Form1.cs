@@ -12,8 +12,10 @@ namespace v0827
 {
     public partial class Form1 : Form
     {
-        int vx = -10;
-        int vy = -10;
+        int vx = -5;
+        int vy = -5;
+        int point = 100;
+        int iTime = 0;
         
 
         public Form1()
@@ -23,20 +25,55 @@ namespace v0827
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+            timer1.Enabled = false;
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            point--;
+            label3.Text = "Score" + point;
+
+            iTime++;
+            label1.Text = ""+iTime;
+
             label1.Left += vx;
             label1.Top += vy;
 
+            if (label1.Left < 0)
+            {
+                vx = Math.Abs(vx);
+
+            }
+            if (label1.Top < 0)
+            {
+                vy = Math.Abs(vy);
+
+            }
+            if (label1.Right > ClientSize.Width)
+            {
+                vx = -Math.Abs(vx);
+
+            }
+            if (label1.Bottom > ClientSize.Height)
+            {
+                vy = -Math.Abs(vy);
+
+            }
+
             Point mp = MousePosition;
             mp = PointToClient(mp);
-            label2.Left = mp.X-label2.Width/2;
-            label2.Top = mp.Y-label2.Height/2;
+            //label2.Left = mp.X - label2.Width / 2; //表示場所
+            //label2.Top = mp.Y-label2.Height / 2;
             label2.Text = "" + mp.X + "," + mp.Y;
+
+            if(     (mp.X >= label1.Left)
+                &&  (mp.X < label1.Right)
+                &&  (mp.Y >= label1.Top)
+                &&  (mp.Y < label1.Bottom)
+                ){
+                    timer1.Enabled = false;
+            }
         }
     }
 }
