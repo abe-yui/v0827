@@ -25,6 +25,12 @@ namespace v0827
 
             label1.Left = rand.Next(ClientSize.Width - label1.Width);
             label1.Top = rand.Next(ClientSize.Height - label1.Height);
+
+            /*label4.Left = rand.Next(ClientSize.Width - label4.Width);
+            label4.Top = rand.Next(ClientSize.Height - label4.Height);
+
+            label5.Left = rand.Next(ClientSize.Width - label5.Width);
+            label5.Top = rand.Next(ClientSize.Height - label5.Height);*/
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -80,6 +86,76 @@ namespace v0827
             {
                     timer1.Enabled = false;
             }
+
+            /*label4.Left += vx;
+            label4.Top += vy;
+
+            if (label4.Left < 0)
+            {
+                vx = Math.Abs(vx);
+
+            }
+            if (label4.Top < 0)
+            {
+                vy = Math.Abs(vy);
+
+            }
+            if (label4.Right > ClientSize.Width)
+            {
+                vx = -Math.Abs(vx);
+
+            }
+            if (label4.Bottom > ClientSize.Height)
+            {
+                vy = -Math.Abs(vy);
+
+            }
+
+
+
+            if ((mp.X >= label4.Left)
+                && (mp.X < label4.Right)
+                && (mp.Y >= label4.Top)
+                && (mp.Y < label4.Bottom)
+                )
+            {
+                timer1.Enabled = false;
+            }
+
+            label5.Left += vx;
+            label5.Top += vy;
+
+            if (label5.Left < 0)
+            {
+                vx = Math.Abs(vx);
+
+            }
+            if (label5.Top < 0)
+            {
+                vy = Math.Abs(vy);
+
+            }
+            if (label5.Right > ClientSize.Width)
+            {
+                vx = -Math.Abs(vx);
+
+            }
+            if (label5.Bottom > ClientSize.Height)
+            {
+                vy = -Math.Abs(vy);
+
+            }
+           
+
+
+            if ((mp.X >= label5.Left)
+                && (mp.X < label5.Right)
+                && (mp.Y >= label5.Top)
+                && (mp.Y < label5.Bottom)
+                )
+            {
+                timer1.Enabled = false;
+            }*/
         }
     }
 }
