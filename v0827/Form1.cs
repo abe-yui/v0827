@@ -12,15 +12,19 @@ namespace v0827
 {
     public partial class Form1 : Form
     {
-        int vx = -5;
-        int vy = -5;
+        int vx = rand.Next(-10,11);
+        int vy = rand.Next(-10,11);
         int point = 100;
         int iTime = 0;
+        static Random rand = new Random();
         
 
         public Form1()
         {
             InitializeComponent();
+
+            label1.Left = rand.Next(ClientSize.Width - label1.Width);
+            label1.Top = rand.Next(ClientSize.Height - label1.Height);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,7 +36,7 @@ namespace v0827
         private void timer1_Tick(object sender, EventArgs e)
         {
             point--;
-            label3.Text = "Score" + point;
+            label3.Text = "Score," + point;
 
             iTime++;
             label1.Text = ""+iTime;
@@ -67,11 +71,13 @@ namespace v0827
             //label2.Top = mp.Y-label2.Height / 2;
             label2.Text = "" + mp.X + "," + mp.Y;
 
+
             if(     (mp.X >= label1.Left)
                 &&  (mp.X < label1.Right)
                 &&  (mp.Y >= label1.Top)
                 &&  (mp.Y < label1.Bottom)
-                ){
+                )
+            {
                     timer1.Enabled = false;
             }
         }
